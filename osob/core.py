@@ -3,6 +3,13 @@
 __all__ = ['Telescope']
 
 # Cell
+import logging
+from requests import session
+import configparser
+from os.path import expanduser
+import json
+
+# Cell
 class Telescope :
 
     url='https://www.telescope.org/'
@@ -59,3 +66,37 @@ class Telescope :
         if self.s is None :
             self.s.post(self.url+'logout.php')
             self.s=None
+
+    def get_user_requests(self, sort='rid', folder=1):
+        '''
+        Get all user requests from folder (Inbox=1 by default),
+        sorted by sort column ('rid' by default).
+        Possible sort columns are: 'rid', 'object', 'completion'
+        The data is returned as a list of dictionaries.
+        '''
+
+        #fetch first batch
+        params={
+            'limit': 100,
+            'sort': sort,
+            'folderid': folder}
+
+        rq = self.s.post(self.url+"api-user.php", {'module': "request-manager",
+                                                   'request': "1-get-list-own",
+                                                   'params' : json.dumps(params)})
+        res=[]
+        dat=json.loads(rq.content)
+        total=int(dat['data']['totalRequests'])
+        res+=dat['data']['requests']
+
+        # Fetch the rest
+        params['limit']=total-len(res)
+        params['startAfterRow']=len(res)
+        rq = self.s.post(self.url+"api-user.php", {'module': "request-manager",
+                                                   'request': "1-get-list-own",
+                                                   'params' : json.dumps(params)})
+
+        dat=json.loads(rq.content)
+        total=int(dat['data']['totalRequests'])
+        res+=dat['data']['requests']
+        return res
