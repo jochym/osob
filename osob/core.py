@@ -43,3 +43,19 @@ class Telescope :
         self.retry=15
         self.login()
         self.cache=cache
+
+    def login(self):
+        log = logging.getLogger(__name__)
+        payload = {'action': 'login',
+                   'username': self.user,
+                   'password': self.passwd,
+                   'stayloggedin': 'true'}
+        log.debug('Get session ...')
+        self.s=session()
+        log.debug('Logging in ...')
+        self.s.post(self.url+'login.php', data=payload)
+
+    def logout(self):
+        if self.s is None :
+            self.s.post(self.url+'logout.php')
+            self.s=None
