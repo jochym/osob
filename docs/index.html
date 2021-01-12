@@ -80,6 +80,42 @@ nb_path: "index.ipynb"
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-2-29481b3a549e&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> config<span class="ansi-blue-fg">.</span>read<span class="ansi-blue-fg">(</span>expanduser<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;~/.config/telescope.ini&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> 
+<span class="ansi-green-fg">----&gt; 4</span><span class="ansi-red-fg"> OSO=Telescope(config[&#39;telescope.org&#39;][&#39;user&#39;], 
+</span><span class="ansi-green-intense-fg ansi-bold">      5</span>               config[&#39;telescope.org&#39;][&#39;password&#39;])
+
+<span class="ansi-green-fg">~/Projects/osob/osob/core.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-fg">(self, user, passwd, cache)</span>
+<span class="ansi-green-intense-fg ansi-bold">     42</span>         self<span class="ansi-blue-fg">.</span>tout<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">60</span>
+<span class="ansi-green-intense-fg ansi-bold">     43</span>         self<span class="ansi-blue-fg">.</span>retry<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">15</span>
+<span class="ansi-green-fg">---&gt; 44</span><span class="ansi-red-fg">         </span>self<span class="ansi-blue-fg">.</span>login<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     45</span>         self<span class="ansi-blue-fg">.</span>cache<span class="ansi-blue-fg">=</span>cache
+<span class="ansi-green-intense-fg ansi-bold">     46</span> 
+
+<span class="ansi-green-fg">~/Projects/osob/osob/core.py</span> in <span class="ansi-cyan-fg">login</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">     46</span> 
+<span class="ansi-green-intense-fg ansi-bold">     47</span>     <span class="ansi-green-fg">def</span> login<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---&gt; 48</span><span class="ansi-red-fg">         </span>log <span class="ansi-blue-fg">=</span> logging<span class="ansi-blue-fg">.</span>getLogger<span class="ansi-blue-fg">(</span>__name__<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     49</span>         payload = {&#39;action&#39;: &#39;login&#39;,
+<span class="ansi-green-intense-fg ansi-bold">     50</span>                    <span class="ansi-blue-fg">&#39;username&#39;</span><span class="ansi-blue-fg">:</span> self<span class="ansi-blue-fg">.</span>user<span class="ansi-blue-fg">,</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;logging&#39; is not defined</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
     {% endraw %}
 
