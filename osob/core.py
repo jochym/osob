@@ -8,6 +8,7 @@ from requests import session
 import configparser
 from os.path import expanduser
 import json
+from fastcore.basics import patch
 
 # Cell
 class Telescope :
@@ -51,52 +52,59 @@ class Telescope :
         self.login()
         self.cache=cache
 
-    def login(self):
-        log = logging.getLogger(__name__)
-        payload = {'action': 'login',
-                   'username': self.user,
-                   'password': self.passwd,
-                   'stayloggedin': 'true'}
-        log.debug('Get session ...')
-        self.s=session()
-        log.debug('Logging in ...')
-        self.s.post(self.url+'login.php', data=payload)
+# Cell
+@patch
+def login(self: Telescope):
+    log = logging.getLogger(__name__)
+    payload = {'action': 'login',
+               'username': self.user,
+               'password': self.passwd,
+               'stayloggedin': 'true'}
+    log.debug('Get session ...')
+    self.s=session()
+    log.debug('Logging in ...')
+    self.s.post(self.url+'login.php', data=payload)
 
-    def logout(self):
-        if self.s is None :
-            self.s.post(self.url+'logout.php')
-            self.s=None
+# Cell
+@patch
+def logout(self: Telescope):
+    if self.s is None :
+        self.s.post(self.url+'logout.php')
+        self.s=None
 
-    def get_user_requests(self, sort='rid', folder=1):
-        '''
-        Get all user requests from folder (Inbox=1 by default),
-        sorted by sort column ('rid' by default).
-        Possible sort columns are: 'rid', 'object', 'completion'
-        The data is returned as a list of dictionaries.
-        '''
 
-        #fetch first batch
-        params={
-            'limit': 100,
-            'sort': sort,
-            'folderid': folder}
+# Cell
+@patch
+def get_user_requests(self: Telescope, sort='rid', folder=1):
+    '''
+    Get all user requests from folder (Inbox=1 by default),
+    sorted by sort column ('rid' by default).
+    Possible sort columns are: 'rid', 'object', 'completion'
+    The data is returned as a list of dictionaries.
+    '''
 
-        rq = self.s.post(self.url+"api-user.php", {'module': "request-manager",
-                                                   'request': "1-get-list-own",
-                                                   'params' : json.dumps(params)})
-        res=[]
-        dat=json.loads(rq.content)
-        total=int(dat['data']['totalRequests'])
-        res+=dat['data']['requests']
+    #fetch first batch
+    params={
+        'limit': 100,
+        'sort': sort,
+        'folderid': folder}
 
-        # Fetch the rest
-        params['limit']=total-len(res)
-        params['startAfterRow']=len(res)
-        rq = self.s.post(self.url+"api-user.php", {'module': "request-manager",
-                                                   'request': "1-get-list-own",
-                                                   'params' : json.dumps(params)})
+    rq = self.s.post(self.url+"api-user.php", {'module': "request-manager",
+                                               'request': "1-get-list-own",
+                                               'params' : json.dumps(params)})
+    res=[]
+    dat=json.loads(rq.content)
+    total=int(dat['data']['totalRequests'])
+    res+=dat['data']['requests']
 
-        dat=json.loads(rq.content)
-        total=int(dat['data']['totalRequests'])
-        res+=dat['data']['requests']
-        return res
+    # Fetch the rest
+    params['limit']=total-len(res)
+    params['startAfterRow']=len(res)
+    rq = self.s.post(self.url+"api-user.php", {'module': "request-manager",
+                                               'request': "1-get-list-own",
+                                               'params' : json.dumps(params)})
+
+    dat=json.loads(rq.content)
+    total=int(dat['data']['totalRequests'])
+    res+=dat['data']['requests']
+    return res

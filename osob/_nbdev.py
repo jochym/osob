@@ -2,7 +2,10 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"Telescope": "00_core.ipynb"}
+index = {"Telescope": "00_core.ipynb",
+         "Telescope.login": "00_core.ipynb",
+         "Telescope.logout": "00_core.ipynb",
+         "Telescope.get_user_requests": "00_core.ipynb"}
 
 modules = ["core.py"]
 
