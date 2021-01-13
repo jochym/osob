@@ -232,6 +232,7 @@ The data is returned as a list of dictionaries.</p>
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">reqlst</span><span class="o">=</span><span class="n">OSO</span><span class="o">.</span><span class="n">get_user_requests</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="s1">&#39;completion&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Number of users requests: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">reqlst</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">reqlst</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -247,6 +248,33 @@ The data is returned as a list of dictionaries.</p>
 <pre>Number of users requests: 1162
 </pre>
 </div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[{&#39;id&#39;: &#39;685130&#39;,
+  &#39;seen&#39;: &#39;0&#39;,
+  &#39;usercomments&#39;: &#39;Mira&#39;,
+  &#39;objecttype&#39;: &#39;RADEC&#39;,
+  &#39;objectid&#39;: &#39;19:19:02.60 +41:06:34.24&#39;,
+  &#39;objectname&#39;: &#39;EQ Lyr&#39;,
+  &#39;requesttime&#39;: &#39;1589275435&#39;,
+  &#39;status&#39;: &#39;8&#39;,
+  &#39;row&#39;: &#39;1&#39;},
+ {&#39;id&#39;: &#39;685129&#39;,
+  &#39;seen&#39;: &#39;0&#39;,
+  &#39;usercomments&#39;: &#39;Mira&#39;,
+  &#39;objecttype&#39;: &#39;RADEC&#39;,
+  &#39;objectid&#39;: &#39;20:00:03.02 +22:46:51.55&#39;,
+  &#39;objectname&#39;: &#39;DQ Vul&#39;,
+  &#39;requesttime&#39;: &#39;1589275435&#39;,
+  &#39;status&#39;: &#39;8&#39;,
+  &#39;row&#39;: &#39;2&#39;}]</pre>
+</div>
+
 </div>
 
 </div>

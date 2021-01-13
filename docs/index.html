@@ -78,6 +78,13 @@ nb_path: "index.ipynb"
 <span class="n">reqlst</span><span class="o">=</span><span class="n">OSO</span><span class="o">.</span><span class="n">get_user_requests</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="s1">&#39;completion&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Number of users requests: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">reqlst</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;User folders:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">OSO</span><span class="o">.</span><span class="n">get_user_folders</span><span class="p">():</span>
+    <span class="n">cnt</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="s2">&quot;count&quot;</span><span class="p">]</span> 
+    <span class="k">if</span> <span class="n">cnt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">f</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="si">:</span><span class="s1">&gt;12</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">f</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span><span class="si">:</span><span class="s1">&gt;3</span><span class="si">}</span><span class="s1">): </span><span class="si">{</span><span class="n">cnt</span><span class="si">:</span><span class="s1">&gt;4</span><span class="si">}</span><span class="s1"> items&#39;</span><span class="p">)</span>
+
 <span class="n">OSO</span><span class="o">.</span><span class="n">logout</span><span class="p">()</span>
 </pre></div>
 
@@ -92,6 +99,12 @@ nb_path: "index.ipynb"
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Number of users requests: 1162
+User folders:
+       Inbox (  1): 1162 items
+  Favourites (  2):    0 items
+     Archive (  3):  447 items
+       Trash (  4):   52 items
+    Complete (461):   13 items
 </pre>
 </div>
 </div>

@@ -23,8 +23,21 @@ OSO=Telescope(config['telescope.org']['user'],
 reqlst=OSO.get_user_requests(sort='completion')
 print(f'Number of users requests: {len(reqlst)}')
 
+print("User folders:")
+for f in OSO.get_user_folders():
+    cnt = f["count"] 
+    if cnt is None:
+        cnt = 0
+    print(f'{f["name"]:>12} ({f["id"]:>3}): {cnt:>4} items')
+
 OSO.logout()
 ```
 
     Number of users requests: 1162
+    User folders:
+           Inbox (  1): 1162 items
+      Favourites (  2):    0 items
+         Archive (  3):  447 items
+           Trash (  4):   52 items
+        Complete (461):   13 items
 
