@@ -108,3 +108,13 @@ def get_user_requests(self: Telescope, sort='rid', folder=1):
     total=int(dat['data']['totalRequests'])
     res+=dat['data']['requests']
     return res
+
+# Cell
+@patch
+def get_user_folders(self: Telescope):
+    '''
+    Get all user folders. Returns list of dictionaries.
+    '''
+    rq = self.s.post(self.url+"api-user.php", {'module': "request-manager",
+                                               'request': "0-get-my-folders"})
+    return json.loads(rq.content)['data']
