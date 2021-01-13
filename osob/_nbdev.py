@@ -8,7 +8,8 @@ index = {"Telescope": "00_core.ipynb",
          "Telescope.get_user_requests": "00_core.ipynb",
          "Telescope.get_user_folders": "00_core.ipynb"}
 
-modules = ["core.py"]
+modules = ["core.py",
+           "process.py"]
 
 doc_url = "https://jochym.github.io/osob/"
 

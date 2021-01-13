@@ -12,6 +12,9 @@ entries:
     - output: web,pdf
       title: osob
       url: core.html
+    - output: web,pdf
+      title: process
+      url: process.html
     output: web
     title: osob
   output: web
