@@ -54,7 +54,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Telescope" class="doc_header"><code>class</code> <code>Telescope</code><a href="https://github.com/jochym/osob/tree/main/osob/core.py#L14" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Telescope</code>(<strong><code>user</code></strong>, <strong><code>passwd</code></strong>, <strong><code>cache</code></strong>=<em><code>'.cache/jobs'</code></em>)</p>
+<h2 id="Telescope" class="doc_header"><code>class</code> <code>Telescope</code><a href="https://github.com/jochym/osob/tree/main/osob/core.py#L18" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Telescope</code>(<strong><code>user</code></strong>, <strong><code>passwd</code></strong>, <strong><code>cache</code></strong>=<em><code>'.cache/jobs'</code></em>)</p>
 </blockquote>
 
 </div>
@@ -85,7 +85,69 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="Telescope.login" class="doc_header"><code>Telescope.login</code><a href="https://github.com/jochym/osob/tree/main/osob/core.py#L56" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Telescope.login</code>()</p>
+<h4 id="cleanup" class="doc_header"><code>cleanup</code><a href="https://github.com/jochym/osob/tree/main/osob/core.py#L60" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>cleanup</code>(<strong><code>s</code></strong>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">cleanup</span><span class="p">(</span><span class="s1">&#39;Polish diacritics:|ążźćńłóęśĄŻŹĆŃŁÓĘŚ| (should be empty)&#39;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Polish diacritics:|| (should be empty)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="Telescope.login" class="doc_header"><code>Telescope.login</code><a href="https://github.com/jochym/osob/tree/main/osob/core.py#L64" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Telescope.login</code>()</p>
 </blockquote>
 
 </div>
@@ -116,7 +178,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="Telescope.logout" class="doc_header"><code>Telescope.logout</code><a href="https://github.com/jochym/osob/tree/main/osob/core.py#L69" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Telescope.logout</code>()</p>
+<h4 id="Telescope.logout" class="doc_header"><code>Telescope.logout</code><a href="https://github.com/jochym/osob/tree/main/osob/core.py#L77" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Telescope.logout</code>()</p>
 </blockquote>
 
 </div>
@@ -199,7 +261,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="Telescope.get_user_requests" class="doc_header"><code>Telescope.get_user_requests</code><a href="https://github.com/jochym/osob/tree/main/osob/core.py#L77" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Telescope.get_user_requests</code>(<strong><code>sort</code></strong>=<em><code>'rid'</code></em>, <strong><code>folder</code></strong>=<em><code>1</code></em>)</p>
+<h4 id="Telescope.get_user_requests" class="doc_header"><code>Telescope.get_user_requests</code><a href="https://github.com/jochym/osob/tree/main/osob/core.py#L85" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Telescope.get_user_requests</code>(<strong><code>sort</code></strong>=<em><code>'rid'</code></em>, <strong><code>folder</code></strong>=<em><code>1</code></em>)</p>
 </blockquote>
 <p>Get all user requests from folder (Inbox=1 by default),
 sorted by sort column ('rid' by default).
@@ -232,7 +294,7 @@ The data is returned as a list of dictionaries.</p>
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">reqlst</span><span class="o">=</span><span class="n">OSO</span><span class="o">.</span><span class="n">get_user_requests</span><span class="p">(</span><span class="n">sort</span><span class="o">=</span><span class="s1">&#39;completion&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Number of users requests: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">reqlst</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">reqlst</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">reqlst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -255,24 +317,15 @@ The data is returned as a list of dictionaries.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[{&#39;id&#39;: &#39;685130&#39;,
-  &#39;seen&#39;: &#39;0&#39;,
-  &#39;usercomments&#39;: &#39;Mira&#39;,
-  &#39;objecttype&#39;: &#39;RADEC&#39;,
-  &#39;objectid&#39;: &#39;19:19:02.60 +41:06:34.24&#39;,
-  &#39;objectname&#39;: &#39;EQ Lyr&#39;,
-  &#39;requesttime&#39;: &#39;1589275435&#39;,
-  &#39;status&#39;: &#39;8&#39;,
-  &#39;row&#39;: &#39;1&#39;},
- {&#39;id&#39;: &#39;685129&#39;,
-  &#39;seen&#39;: &#39;0&#39;,
-  &#39;usercomments&#39;: &#39;Mira&#39;,
-  &#39;objecttype&#39;: &#39;RADEC&#39;,
-  &#39;objectid&#39;: &#39;20:00:03.02 +22:46:51.55&#39;,
-  &#39;objectname&#39;: &#39;DQ Vul&#39;,
-  &#39;requesttime&#39;: &#39;1589275435&#39;,
-  &#39;status&#39;: &#39;8&#39;,
-  &#39;row&#39;: &#39;2&#39;}]</pre>
+<pre>{&#39;id&#39;: &#39;685130&#39;,
+ &#39;seen&#39;: &#39;0&#39;,
+ &#39;usercomments&#39;: &#39;Mira&#39;,
+ &#39;objecttype&#39;: &#39;RADEC&#39;,
+ &#39;objectid&#39;: &#39;19:19:02.60 +41:06:34.24&#39;,
+ &#39;objectname&#39;: &#39;EQ Lyr&#39;,
+ &#39;requesttime&#39;: &#39;1589275435&#39;,
+ &#39;status&#39;: &#39;8&#39;,
+ &#39;row&#39;: &#39;1&#39;}</pre>
 </div>
 
 </div>
@@ -294,7 +347,7 @@ The data is returned as a list of dictionaries.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="Telescope.get_user_folders" class="doc_header"><code>Telescope.get_user_folders</code><a href="https://github.com/jochym/osob/tree/main/osob/core.py#L113" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Telescope.get_user_folders</code>()</p>
+<h4 id="Telescope.get_user_folders" class="doc_header"><code>Telescope.get_user_folders</code><a href="https://github.com/jochym/osob/tree/main/osob/core.py#L121" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Telescope.get_user_folders</code>()</p>
 </blockquote>
 <p>Get all user folders. Returns list of dictionaries.</p>
 
@@ -351,6 +404,549 @@ The data is returned as a list of dictionaries.</p>
 
 </div>
 </div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="Telescope.get_obs_list" class="doc_header"><code>Telescope.get_obs_list</code><a href="https://github.com/jochym/osob/tree/main/osob/core.py#L131" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Telescope.get_obs_list</code>(<strong><code>t</code></strong>=<em><code>None</code></em>, <strong><code>dt</code></strong>=<em><code>1</code></em>, <strong><code>filtertype</code></strong>=<em><code>''</code></em>, <strong><code>camera</code></strong>=<em><code>''</code></em>, <strong><code>hour</code></strong>=<em><code>16</code></em>, <strong><code>minute</code></strong>=<em><code>0</code></em>)</p>
+</blockquote>
+<p>Get the dt days of observations taken no later then time in t.</p>
+<h2 id="Input">Input<a class="anchor-link" href="#Input"> </a></h2><p>t  - end time in seconds from the epoch
+    (as returned by time.time())
+dt - number of days, default to 1
+filtertype - filter by type of filter used
+camera - filter by the camera/telescope used</p>
+<h2 id="Output">Output<a class="anchor-link" href="#Output"> </a></h2><p>Returns a list of JobIDs (int) for the observations.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="n">olst</span> <span class="o">=</span> <span class="n">OSO</span><span class="o">.</span><span class="n">get_obs_list</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">24</span><span class="p">)</span><span class="o">.</span><span class="n">timestamp</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Observations: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">olst</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Observations: 54
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="Telescope.get_job" class="doc_header"><code>Telescope.get_job</code><a href="https://github.com/jochym/osob/tree/main/osob/core.py#L206" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Telescope.get_job</code>(<strong><code>jid</code></strong>=<em><code>None</code></em>)</p>
+</blockquote>
+<p>Get a job data for a given JID</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">OSO</span><span class="o">.</span><span class="n">get_job</span><span class="p">(</span><span class="mi">369256</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{&#39;jid&#39;: 369256, &#39;type&#39;: &#39;RADEC&#39;, &#39;oid&#39;: &#39;00:42:58.58 +36:28:18.97&#39;, &#39;exp&#39;: &#39;120000 ms&#39;, &#39;filter&#39;: &#39;BVR&#39;, &#39;tele&#39;: &#39;Galaxy&#39;, &#39;completion&#39;: [&#39;22&#39;, &#39;December&#39;, &#39;2020&#39;, &#39;23:34:10&#39;, &#39;UTC&#39;], &#39;status&#39;: True, &#39;flatid&#39;: 24}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Basic-API-calls">Basic API calls<a class="anchor-link" href="#Basic-API-calls"> </a></h3><blockquote><p>User-API</p>
+<p>Request Manager</p>
+<p>Request Constructor</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="Telescope.do_api_call" class="doc_header"><code>Telescope.do_api_call</code><a href="https://github.com/jochym/osob/tree/main/osob/core.py#L251" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Telescope.do_api_call</code>(<strong><code>module</code></strong>, <strong><code>req</code></strong>, <strong><code>params</code></strong>=<em><code>None</code></em>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="Telescope.do_rm_api" class="doc_header"><code>Telescope.do_rm_api</code><a href="https://github.com/jochym/osob/tree/main/osob/core.py#L259" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Telescope.do_rm_api</code>(<strong><code>req</code></strong>, <strong><code>params</code></strong>=<em><code>None</code></em>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="Telescope.do_rc_api" class="doc_header"><code>Telescope.do_rc_api</code><a href="https://github.com/jochym/osob/tree/main/osob/core.py#L265" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Telescope.do_rc_api</code>(<strong><code>req</code></strong>, <strong><code>params</code></strong>=<em><code>None</code></em>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">obs</span> <span class="o">=</span> <span class="n">OSO</span><span class="o">.</span><span class="n">get_job</span><span class="p">(</span><span class="mi">369256</span><span class="p">)</span>
+<span class="n">rsp</span> <span class="o">=</span> <span class="n">OSO</span><span class="o">.</span><span class="n">do_api_call</span><span class="p">(</span><span class="s2">&quot;image-engine&quot;</span><span class="p">,</span> <span class="s2">&quot;0-create-dlzip&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;jid&#39;</span><span class="p">:</span> <span class="n">obs</span><span class="p">[</span><span class="s1">&#39;jid&#39;</span><span class="p">],</span> <span class="s1">&#39;flatid&#39;</span><span class="p">:</span> <span class="n">obs</span><span class="p">[</span><span class="s1">&#39;flatid&#39;</span><span class="p">]})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rsp</span><span class="p">)</span>
+<span class="n">rsp</span> <span class="o">=</span> <span class="n">OSO</span><span class="o">.</span><span class="n">do_api_call</span><span class="p">(</span><span class="s2">&quot;image-engine&quot;</span><span class="p">,</span> <span class="s2">&quot;0-is-job-ready&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;ieid&#39;</span><span class="p">:</span><span class="n">rsp</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;ieID&#39;</span><span class="p">],})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rsp</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{&#39;success&#39;: 1, &#39;status&#39;: &#39;OK_READY&#39;, &#39;data&#39;: {&#39;ieID&#39;: &#39;1446589&#39;, &#39;flatID&#39;: 24}}
+{&#39;success&#39;: 1, &#39;status&#39;: &#39;READY&#39;, &#39;data&#39;: {&#39;flatID&#39;: &#39;24&#39;, &#39;fitsbzsize&#39;: &#39;7758124&#39;, &#39;fitssize&#39;: &#39;0&#39;}}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="Telescope.download_obs" class="doc_header"><code>Telescope.download_obs</code><a href="https://github.com/jochym/osob/tree/main/osob/core.py#L270" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Telescope.download_obs</code>(<strong><code>obs</code></strong>=<em><code>None</code></em>, <strong><code>directory</code></strong>=<em><code>'.'</code></em>, <strong><code>cube</code></strong>=<em><code>True</code></em>, <strong><code>verbose</code></strong>=<em><code>False</code></em>)</p>
+</blockquote>
+<p>Download the raw observation obs (obtained from get_job) into zip
+file named job_jid.zip located in the directory (current by default).
+Alternatively, when the cube=True the file will be a 3D fits file.
+The name of the file (without directory) is returned.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fn</span> <span class="o">=</span> <span class="n">OSO</span><span class="o">.</span><span class="n">download_obs</span><span class="p">(</span><span class="n">OSO</span><span class="o">.</span><span class="n">get_job</span><span class="p">(</span><span class="mi">369256</span><span class="p">),</span> <span class="n">directory</span><span class="o">=</span><span class="s1">&#39;/tmp&#39;</span><span class="p">,</span> <span class="n">cube</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">fn</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Removing downloaded file: </span><span class="si">{</span><span class="n">fn</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;/tmp&#39;</span><span class="p">,</span> <span class="n">fn</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Download failed&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>READY                         
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>100%|██████████| 14.2M/14.2M [00:00&lt;00:00, 15.0MiB/s]</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Removing downloaded file: 369256.fits
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="Telescope.get_obs" class="doc_header"><code>Telescope.get_obs</code><a href="https://github.com/jochym/osob/tree/main/osob/core.py#L313" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Telescope.get_obs</code>(<strong><code>obs</code></strong>=<em><code>None</code></em>, <strong><code>cube</code></strong>=<em><code>True</code></em>, <strong><code>recurse</code></strong>=<em><code>True</code></em>, <strong><code>verbose</code></strong>=<em><code>False</code></em>)</p>
+</blockquote>
+<p>Get the raw observation obs (obtained from get_job) into zip
+file-like object. The function returns ZipFile structure of the
+downloaded data.</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">OSO</span><span class="o">.</span><span class="n">get_obs</span><span class="p">(</span><span class="n">OSO</span><span class="o">.</span><span class="n">get_job</span><span class="p">(</span><span class="mi">369256</span><span class="p">),</span> <span class="n">cube</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> 
+<span class="n">OSO</span><span class="o">.</span><span class="n">get_obs</span><span class="p">(</span><span class="n">OSO</span><span class="o">.</span><span class="n">get_job</span><span class="p">(</span><span class="mi">369256</span><span class="p">),</span> <span class="n">cube</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">),)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(&lt;zipfile.ZipFile file=&lt;_io.BufferedReader name=&#39;.cache/jobs/3/6/369256.zip&#39;&gt; mode=&#39;r&#39;&gt;,
+ &lt;_io.BufferedReader name=&#39;.cache/jobs/3/6/369256.fits&#39;&gt;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Job-submission-methods">Job submission methods<a class="anchor-link" href="#Job-submission-methods"> </a></h3><blockquote><p>Submission API</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="Telescope.submit_job_api" class="doc_header"><code>Telescope.submit_job_api</code><a href="https://github.com/jochym/osob/tree/main/osob/core.py#L345" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Telescope.submit_job_api</code>(<strong><code>obj</code></strong>, <strong><code>exposure</code></strong>=<em><code>30000</code></em>, <strong><code>tele</code></strong>=<em><code>'COAST'</code></em>, <strong><code>filt</code></strong>=<em><code>'BVR'</code></em>, <strong><code>darkframe</code></strong>=<em><code>True</code></em>, <strong><code>name</code></strong>=<em><code>'RaDec object'</code></em>, <strong><code>comment</code></strong>=<em><code>'AutoSubmit'</code></em>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="RADEC-job-submission">RADEC job submission<a class="anchor-link" href="#RADEC-job-submission"> </a></h3>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="Telescope.submit_RADEC_job" class="doc_header"><code>Telescope.submit_RADEC_job</code><a href="https://github.com/jochym/osob/tree/main/osob/core.py#L393" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Telescope.submit_RADEC_job</code>(<strong><code>obj</code></strong>, <strong><code>exposure</code></strong>=<em><code>30000</code></em>, <strong><code>tele</code></strong>=<em><code>'COAST'</code></em>, <strong><code>filt</code></strong>=<em><code>'BVR'</code></em>, <strong><code>darkframe</code></strong>=<em><code>True</code></em>, <strong><code>name</code></strong>=<em><code>'RaDec object'</code></em>, <strong><code>comment</code></strong>=<em><code>'AutoSubmit'</code></em>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Typical-variable-star-job-submission">Typical variable star job submission<a class="anchor-link" href="#Typical-variable-star-job-submission"> </a></h3>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="Telescope.submitVarStar" class="doc_header"><code>Telescope.submitVarStar</code><a href="https://github.com/jochym/osob/tree/main/osob/core.py#L471" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>Telescope.submitVarStar</code>(<strong><code>name</code></strong>, <strong><code>expos</code></strong>=<em><code>90</code></em>, <strong><code>filt</code></strong>=<em><code>'BVR'</code></em>, <strong><code>comm</code></strong>=<em><code>''</code></em>, <strong><code>tele</code></strong>=<em><code>'COAST'</code></em>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}

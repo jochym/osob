@@ -3,10 +3,21 @@
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"Telescope": "00_core.ipynb",
+         "cleanup": "00_core.ipynb",
          "Telescope.login": "00_core.ipynb",
          "Telescope.logout": "00_core.ipynb",
          "Telescope.get_user_requests": "00_core.ipynb",
-         "Telescope.get_user_folders": "00_core.ipynb"}
+         "Telescope.get_user_folders": "00_core.ipynb",
+         "Telescope.get_obs_list": "00_core.ipynb",
+         "Telescope.get_job": "00_core.ipynb",
+         "Telescope.do_api_call": "00_core.ipynb",
+         "Telescope.do_rm_api": "00_core.ipynb",
+         "Telescope.do_rc_api": "00_core.ipynb",
+         "Telescope.download_obs": "00_core.ipynb",
+         "Telescope.get_obs": "00_core.ipynb",
+         "Telescope.submit_job_api": "00_core.ipynb",
+         "Telescope.submit_RADEC_job": "00_core.ipynb",
+         "Telescope.submitVarStar": "00_core.ipynb"}
 
 modules = ["core.py",
            "process.py"]
