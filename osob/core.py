@@ -284,7 +284,7 @@ def download_obs(self: Telescope, obs=None, directory='.', cube=True, verbose=Fa
 
     while rsp['status']!='READY' :
         if verbose:
-            print(f"{rsp['status']:30}", end='\r')
+            print(f"{rsp['status']:30}", end='\n')
         time.sleep(1)
         rsp = OSO.do_api_call("image-engine", "0-is-job-ready", {'ieid':ieid,})
 
