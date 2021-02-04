@@ -112,24 +112,10 @@ nb_path: "00_core.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">cleanup</span><span class="p">(</span><span class="s1">&#39;Polish diacritics:|ążźćńłóęśĄŻŹĆŃŁÓĘŚ| (should be empty)&#39;</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">cleanup</span><span class="p">(</span><span class="s1">&#39;|ążźćńłóęśĄŻŹĆŃŁÓĘŚ|&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;||&#39;</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Polish diacritics:|| (should be empty)
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -317,13 +303,13 @@ The data is returned as a list of dictionaries.</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{&#39;id&#39;: &#39;685130&#39;,
+<pre>{&#39;id&#39;: &#39;707037&#39;,
  &#39;seen&#39;: &#39;0&#39;,
  &#39;usercomments&#39;: &#39;Mira&#39;,
  &#39;objecttype&#39;: &#39;RADEC&#39;,
- &#39;objectid&#39;: &#39;19:19:02.60 +41:06:34.24&#39;,
- &#39;objectname&#39;: &#39;EQ Lyr&#39;,
- &#39;requesttime&#39;: &#39;1589275435&#39;,
+ &#39;objectid&#39;: &#39;21:42:42.80 +43:35:09.86&#39;,
+ &#39;objectname&#39;: &#39;SS Cyg&#39;,
+ &#39;requesttime&#39;: &#39;1609349625&#39;,
  &#39;status&#39;: &#39;8&#39;,
  &#39;row&#39;: &#39;1&#39;}</pre>
 </div>
@@ -663,7 +649,7 @@ camera - filter by the camera/telescope used</p>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>{&#39;success&#39;: 1, &#39;status&#39;: &#39;OK_READY&#39;, &#39;data&#39;: {&#39;ieID&#39;: &#39;1446589&#39;, &#39;flatID&#39;: 24}}
+<pre>{&#39;success&#39;: 1, &#39;status&#39;: &#39;OK_READY&#39;, &#39;data&#39;: {&#39;ieID&#39;: &#39;1460959&#39;, &#39;flatID&#39;: 24}}
 {&#39;success&#39;: 1, &#39;status&#39;: &#39;READY&#39;, &#39;data&#39;: {&#39;flatID&#39;: &#39;24&#39;, &#39;fitsbzsize&#39;: &#39;7758124&#39;, &#39;fitssize&#39;: &#39;0&#39;}}
 </pre>
 </div>
@@ -735,7 +721,8 @@ The name of the file (without directory) is returned.</p>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>READY                         
+<pre>OK_READY                      
+READY                         
 </pre>
 </div>
 </div>
@@ -743,7 +730,7 @@ The name of the file (without directory) is returned.</p>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>100%|██████████| 14.2M/14.2M [00:00&lt;00:00, 15.0MiB/s]</pre>
+<pre>100%|██████████| 14.2M/14.2M [00:01&lt;00:00, 8.55MiB/s]</pre>
 </div>
 </div>
 

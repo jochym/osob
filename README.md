@@ -12,7 +12,7 @@ The OSOb library provides wrapper for the telescope.org site functionality.
 
 The library may be used as standard python module and through several command line utilities: `submit_batch`, `pipeline` etc. Typical use in your own scripts 
 
-```
+```python
 #local
 config = configparser.ConfigParser()
 config.read(expanduser('~/.config/telescope.ini'))
