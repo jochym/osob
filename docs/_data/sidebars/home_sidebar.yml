@@ -10,8 +10,11 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
-      title: osob
+      title: OSOb
       url: core.html
+    - output: web,pdf
+      title: solver
+      url: solver.html
     - output: web,pdf
       title: process
       url: process.html

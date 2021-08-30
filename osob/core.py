@@ -11,8 +11,11 @@ from os.path import expanduser
 import json
 from fastcore.basics import patch
 from zipfile import ZipFile, BadZipFile
-from tqdm import tqdm
+from tqdm.auto import tqdm
 import sys
+import os
+import time
+from astropy.coordinates import SkyCoord, Longitude, Latitude
 
 # Cell
 class Telescope :
@@ -119,6 +122,62 @@ def get_user_requests(self: Telescope, sort='rid', folder=1):
 
 # Cell
 @patch
+def get_request(self: Telescope, rid=None):
+    '''Get request data for a given RID'''
+
+    assert(rid is not None)
+    assert(self.s is not None)
+
+    log = logging.getLogger(__name__)
+    log.debug(rid)
+
+    obs={}
+    obs['rid']=rid
+    #rq=self.s.post(self.url+('v3cjob-view.php?jid=%d' % jid))
+    rq=self.s.post(self.url+('v4request-view.php?rid=%d' % rid))
+    soup = BeautifulSoup(rq.text, 'lxml')
+    for l in soup.findAll('tr'):
+        log.debug(cleanup(l.text))
+        txt=''
+        for f in l.findAll('td'):
+            if txt.find('Job ID') >= 0:
+                obs['jid']=f.text
+            if txt.find('Object Type') >= 0:
+                obs['type']=f.text
+            if txt.find('Object ID') >= 0:
+                obs['oid']=f.text
+            if txt.find('Object Name') >= 0:
+                obs['name']=f.text
+            if txt.find('Telescope Type Name') >= 0:
+                obs['tele_type']=f.text
+            if txt.find('Telescope Name') >= 0:
+                obs['tele']=f.text
+            if txt.find('Filter Type') >= 0:
+                obs['filter']=f.text
+            if txt.find('Dark Frame') >= 0:
+                obs['dark']=f.text
+            if txt.find('Exposure Time') >= 0:
+                obs['exp']=f.text
+            if txt.find('Request Time') >= 0:
+                t=f.text.split()
+                obs['requested']=t[3:6]+[t[6][1:]]+[t[7][:-1]]
+            if txt.find('Completion Time') >= 0:
+                t=f.text.split()
+                obs['completion']=t[3:6]+[t[6][1:]]+[t[7][:-1]]
+            if txt.find('Status') >= 0:
+                obs['status']= f.text.strip() #(f.text == 'Success')
+
+            txt=f.text
+    for l in soup.findAll('a'):
+        if l.get('href')is not None and ('dl-flat' in l.get('href')):
+            obs['flatid']=int(l.get('href').split('=')[1])
+            break
+    log.info('%(jid)d [%(tele)s, %(filter)s, %(status)s]: %(type)s %(oid)s %(exp)s', obs)
+
+    return obs
+
+# Cell
+@patch
 def get_user_folders(self: Telescope):
     '''
     Get all user folders. Returns list of dictionaries.
@@ -222,6 +281,8 @@ def get_job(self: Telescope, jid=None):
         log.debug(cleanup(l.text))
         txt=''
         for f in l.findAll('td'):
+            if txt.find('Request ID') >= 0:
+                obs['rid']=f.text
             if txt.find('Object Type') >= 0:
                 obs['type']=f.text
             if txt.find('Object ID') >= 0:
@@ -277,16 +338,19 @@ def download_obs(self: Telescope, obs=None, directory='.', cube=True, verbose=Fa
     assert(obs is not None)
     assert(self.s is not None)
 
+    payload = {'jid': obs['jid']}
+    if 'flatid' in obs :
+        payload['flatid']=obs['flatid']
+
     rsp = self.do_api_call("image-engine",
-                           "0-create-dl" + ("3d" if cube else "zip"),
-                           {'jid': obs['jid'], 'flatid': obs['flatid']})
+                           "0-create-dl" + ("3d" if cube else "zip"), payload)
     ieid = rsp['data']['ieID']
 
     while rsp['status']!='READY' :
         if verbose:
             print(f"{rsp['status']:30}", end='\n')
         time.sleep(1)
-        rsp = OSO.do_api_call("image-engine", "0-is-job-ready", {'ieid':ieid,})
+        rsp = self.do_api_call("image-engine", "0-is-job-ready", {'ieid':ieid,})
 
     if verbose:
         print(f"{rsp['status']:30}")
@@ -297,7 +361,7 @@ def download_obs(self: Telescope, obs=None, directory='.', cube=True, verbose=Fa
 
     fn = ('%(jid)d.' % obs) + ('fits' if cube else 'zip')
     siz = int(rsp['data']['fitssize' if cube else 'fitsbzsize'])
-    pbar = tqdm(total=siz, unit='iB', unit_scale=True, disable= not verbose)
+    pbar = tqdm(total=siz, unit='iB', unit_scale=True, disable=not verbose)
     with open(os.path.join(directory, fn), 'wb') as fd:
         for chunk in rq.iter_content(512):
             pbar.update(len(chunk))

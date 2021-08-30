@@ -1,7 +1,8 @@
 {
   "osob": {
     "Overview": "/",
-    "osob": "core.html",
+    "OSOb": "core.html",
+    "solver": "solver.html",
     "process": "process.html"
   }
 }

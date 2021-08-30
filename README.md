@@ -2,7 +2,7 @@
 > OpenScience Observatories interface library
 
 
-The OSOb library provides wrapper for the telescope.org site functionality.
+The OSOb library provides wrapper for the telescope.org site functionality. The library provides access and control for the telescope. The functions help with job submission, image retrival and initial analysis. For now this is aimed at variable star observations, but there is nothing prohibiting additional modules intended for different fields (e.g. astrometry).
 
 ## Install
 

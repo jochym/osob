@@ -7,6 +7,7 @@ index = {"Telescope": "00_core.ipynb",
          "Telescope.login": "00_core.ipynb",
          "Telescope.logout": "00_core.ipynb",
          "Telescope.get_user_requests": "00_core.ipynb",
+         "Telescope.get_request": "00_core.ipynb",
          "Telescope.get_user_folders": "00_core.ipynb",
          "Telescope.get_obs_list": "00_core.ipynb",
          "Telescope.get_job": "00_core.ipynb",
@@ -17,9 +18,12 @@ index = {"Telescope": "00_core.ipynb",
          "Telescope.get_obs": "00_core.ipynb",
          "Telescope.submit_job_api": "00_core.ipynb",
          "Telescope.submit_RADEC_job": "00_core.ipynb",
-         "Telescope.submitVarStar": "00_core.ipynb"}
+         "Telescope.submitVarStar": "00_core.ipynb",
+         "Solver": "01_solver.ipynb",
+         "Solver.solve": "01_solver.ipynb"}
 
 modules = ["core.py",
+           "solver.py",
            "process.py"]
 
 doc_url = "https://jochym.github.io/osob/"
