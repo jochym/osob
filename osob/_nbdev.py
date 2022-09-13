@@ -20,11 +20,16 @@ index = {"Telescope": "00_core.ipynb",
          "Telescope.submit_RADEC_job": "00_core.ipynb",
          "Telescope.submitVarStar": "00_core.ipynb",
          "Solver": "01_solver.ipynb",
-         "Solver.solve": "01_solver.ipynb"}
+         "Solver.solve": "01_solver.ipynb",
+         "mech": "03_aavso.ipynb",
+         "prtMag": "03_aavso.ipynb",
+         "dsgn": "03_aavso.ipynb",
+         "get_VS_sequence": "03_aavso.ipynb"}
 
 modules = ["core.py",
            "solver.py",
-           "process.py"]
+           "process.py",
+           "aavso.py"]
 
 doc_url = "https://jochym.github.io/osob/"
 

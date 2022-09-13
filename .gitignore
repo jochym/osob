@@ -130,3 +130,9 @@ dmypy.json
 
 .cache/
 test/
+_docs/
+sidebar.yml
+
+/.quarto/
+
+*.sqlite
