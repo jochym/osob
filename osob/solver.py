@@ -15,6 +15,7 @@ from astroquery.exceptions import TimeoutError as ASTTimeoutError
 from astropy.time import Time
 from astropy.io import fits
 from astropy.coordinates import SkyCoord, Longitude, Latitude
+from astropy.wcs import WCS
 from .core import Telescope
 
 # %% ../01_solver.ipynb 4

@@ -301,9 +301,9 @@ def get_job(self: Telescope, jid=None):
                 obs['status']= (f.text == 'Success')
 
             txt=f.text
-    for l in soup.findAll('a'):
-        if l.get('href')is not None and ('dl-flat' in l.get('href')):
-            obs['flatid']=int(l.get('href').split('=')[1])
+    for l in soup.findAll('button'):
+        if l.get('onclick')is not None and ('dl-flat' in l.get('onclick')):
+            obs['flatid']=int(l.get('onclick').split('=')[-1][:-1])
             break
     log.info('%(jid)d [%(tele)s, %(filter)s, %(status)s]: %(type)s %(oid)s %(exp)s', obs)
 

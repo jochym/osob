@@ -18,7 +18,7 @@ different fields (e.g. astrometry).
 
 The library may be used as standard python module and through several
 command line utilities: `submit_batch`, `pipeline` etc. Typical use in
-your own scripts
+your own scripts:
 
 ``` python
 config = configparser.ConfigParser()
@@ -40,9 +40,9 @@ for f in OSO.get_user_folders():
 OSO.logout()
 ```
 
-    Number of users requests: 1162
+    Number of users requests: 1439
     User folders:
-           Inbox (  1): 1162 items
+           Inbox (  1): 1439 items
       Favourites (  2):    0 items
          Archive (  3):  447 items
            Trash (  4):   52 items
